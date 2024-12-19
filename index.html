@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en" class="[scrollbar-gutter:stable]">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="JwAIMDcgHScRCWQyOXcjHTZWDCEQEQkpd9MvRLjmK0-BTBjpz1IfbHVs">
+
+    <title data-suffix="">
+Melty - AI chat for power users
+    </title>
+    <link phx-track-static rel="stylesheet" href="/assets/app-0672315a65e4c1ab1298a39000bf6f60.css?vsn=d">
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_tvdsIv2ZDXVeJfYm0GTEBFwaPtdmWRa2cNVGCg18Qt6', {api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only'})
+    </script>
+    <script defer phx-track-static type="text/javascript" src="/assets/app-c2048a2bd1f7da3503e29063921429e4.js?vsn=d">
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js">
+    </script>
+  </head>
+  <body class="bg-white antialiased max-w-4xl mx-auto">
+<div id="flash-group">
+  
+  
+  <div id="client-error" phx-click="[[&quot;push&quot;,{&quot;value&quot;:{&quot;key&quot;:&quot;error&quot;},&quot;event&quot;:&quot;lv:clear-flash&quot;}],[&quot;hide&quot;,{&quot;time&quot;:200,&quot;to&quot;:&quot;#client-error&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-in&quot;,&quot;duration-200&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;]]}]]" role="alert" class="fixed top-2 right-2 mr-2 w-80 sm:w-96 z-50 rounded-lg p-3 ring-1 bg-rose-50 text-rose-900 shadow-md ring-rose-500 fill-rose-900" hidden phx-connected="[[&quot;hide&quot;,{&quot;time&quot;:200,&quot;to&quot;:&quot;#client-error&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-in&quot;,&quot;duration-200&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;]]}]]" phx-disconnected="[[&quot;show&quot;,{&quot;to&quot;:&quot;.phx-client-error #client-error&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-out&quot;,&quot;duration-300&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;]]}]]">
+  <p class="flex items-center gap-1.5 text-sm font-semibold leading-6">
+    
+    <span class="hero-exclamation-circle-mini h-4 w-4"></span>
+    We can&#39;t find the internet
+  </p>
+  <p class="mt-2 text-sm leading-5">
+    Attempting to reconnect <span class="hero-arrow-path ml-1 h-3 w-3 animate-spin"></span>
+  </p>
+  <button type="button" class="group absolute top-1 right-1 p-2" aria-label="close">
+    <span class="hero-x-mark-solid h-5 w-5 opacity-40 group-hover:opacity-70"></span>
+  </button>
+</div>
+
+  <div id="server-error" phx-click="[[&quot;push&quot;,{&quot;value&quot;:{&quot;key&quot;:&quot;error&quot;},&quot;event&quot;:&quot;lv:clear-flash&quot;}],[&quot;hide&quot;,{&quot;time&quot;:200,&quot;to&quot;:&quot;#server-error&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-in&quot;,&quot;duration-200&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;]]}]]" role="alert" class="fixed top-2 right-2 mr-2 w-80 sm:w-96 z-50 rounded-lg p-3 ring-1 bg-rose-50 text-rose-900 shadow-md ring-rose-500 fill-rose-900" hidden phx-connected="[[&quot;hide&quot;,{&quot;time&quot;:200,&quot;to&quot;:&quot;#server-error&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-in&quot;,&quot;duration-200&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;]]}]]" phx-disconnected="[[&quot;show&quot;,{&quot;to&quot;:&quot;.phx-server-error #server-error&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-out&quot;,&quot;duration-300&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;]]}]]">
+  <p class="flex items-center gap-1.5 text-sm font-semibold leading-6">
+    
+    <span class="hero-exclamation-circle-mini h-4 w-4"></span>
+    Something went wrong!
+  </p>
+  <p class="mt-2 text-sm leading-5">
+    Hang in there while we get back on track
+    <span class="hero-arrow-path ml-1 h-3 w-3 animate-spin"></span>
+  </p>
+  <button type="button" class="group absolute top-1 right-1 p-2" aria-label="close">
+    <span class="hero-x-mark-solid h-5 w-5 opacity-40 group-hover:opacity-70"></span>
+  </button>
+</div>
+</div>
+
+<div class="px-4 mt-12">
+  <div class="mx-auto">
+    <div class="flex justify-between items-center mt-10">
+      <h1 class="text-brand flex items-center text-sm font-semibold leading-6">
+        Melty
+        <small class="bg-brand/5 text-[0.8125rem] ml-3 rounded-full px-2 font-medium leading-6">
+          v0.2.0
+        </small>
+      </h1>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6uBe0ea26q7Iq0Co_q5fjW2nypUl8G_Is5M_6t8n7wZHuPA/viewform" class="text-brand text-[0.8125rem] ">
+        <button class="phx-submit-loading:opacity-75 rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 flex items-center gap-x-2 bg-brand hover:bg-brand/90">
+  
+          Get Early Access <span class="hero-arrow-up-right h-4 w-4"></span>
+        
+</button>
+      </a>
+    </div>
+    <div class="text-center mt-12">
+      <img src="images/logo.png" class="rounded-lg mx-auto h-16 w-16 border border-zinc-100">
+      <p class="text-4xl mt-8 font-bold leading-10 tracking-tighter text-zinc-900">
+        AI chat for power users.
+      </p>
+      <p class="mt-4 text-base leading-7 text-zinc-600">
+        Write code, interact with your file system, browse the web, and easily chat with different language models on your desktop. All in a blazing fast native app.
+      </p>
+      <div class="relative mt-12 cursor-pointer" id="video-container" phx-hook="VideoPlayer">
+        <img class="rounded-lg w-full" src="images/screenshot.png">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="bg-black bg-opacity-50 rounded-full p-4">
+            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+            </svg>
+          </div>
+        </div>
+        <video class="rounded-lg w-full hidden" src="https://fly.storage.tigris.dev/meltylabs/demo_with_captions.mov" controls>
+        </video>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-4xl lg:max-w-7xl">
+      <p class="mt-2 mx-auto text-center max-w-lg text-pretty text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
+        A different kind of chat app
+      </p>
+      <div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+        <div class="relative lg:col-span-3">
+          <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]">
+          </div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
+            <video class="rounded-md h-80" src="https://fly.storage.tigris.dev/meltylabs/lotsai.mp4" autoplay loop>
+            </video>
+            <div class="p-10 pt-4">
+              <p class="mt-2 text-lg font-medium tracking-tight text-gray-950">
+                Multiplayer Chat
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                Instead of just one AI, Melty conversations can have lots of participants, all with different abilities. Hover over their names to see what they do.
+              </p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]">
+          </div>
+        </div>
+        <div class="relative lg:col-span-3">
+          <div class="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
+            <img class="h-80 object-contain" src="/images/mem2.png" alt="">
+            <div class="p-10 pt-4">
+              <p class="mt-2 text-lg font-medium tracking-tight text-gray-950">
+                Powerful tools out of the box
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                Melty can search the web, edit code, save memories, generate images, and run terminal commands.
+              </p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]">
+          </div>
+        </div>
+
+        <div class="relative lg:col-span-6" id="video-container" phx-click="[[&quot;show&quot;,{&quot;to&quot;:&quot;#video-player&quot;}],[&quot;show&quot;,{&quot;to&quot;:&quot;#video-player-bg&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-out&quot;,&quot;duration-300&quot;],[&quot;opacity-0&quot;],[&quot;opacity-100&quot;]]}],[&quot;show&quot;,{&quot;to&quot;:&quot;#video-player-container&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-out&quot;,&quot;duration-300&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;]]}],[&quot;add_class&quot;,{&quot;names&quot;:[&quot;overflow-hidden&quot;],&quot;to&quot;:&quot;body&quot;}],[&quot;focus_first&quot;,{&quot;to&quot;:&quot;#video-player-content&quot;}]]">
+          <div class="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
+            <div class="relative cursor-pointer" id="video-wrapper">
+              <img class="h-80 w-full object-cover" src="images/branching.png" id="video-thumbnail">
+              <div class="absolute inset-0 flex items-center justify-center" id="play-button">
+                <div class="bg-black bg-opacity-50 rounded-full p-4">
+                  <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div id="video-player" phx-remove="[[&quot;hide&quot;,{&quot;to&quot;:&quot;#video-player-bg&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-in&quot;,&quot;duration-200&quot;],[&quot;opacity-100&quot;],[&quot;opacity-0&quot;]]}],[&quot;hide&quot;,{&quot;time&quot;:200,&quot;to&quot;:&quot;#video-player-container&quot;,&quot;transition&quot;:[[&quot;transition-all&quot;,&quot;transform&quot;,&quot;ease-in&quot;,&quot;duration-200&quot;],[&quot;opacity-100&quot;,&quot;translate-y-0&quot;,&quot;sm:scale-100&quot;],[&quot;opacity-0&quot;,&quot;translate-y-4&quot;,&quot;sm:translate-y-0&quot;,&quot;sm:scale-95&quot;]]}],[&quot;hide&quot;,{&quot;to&quot;:&quot;#video-player&quot;,&quot;transition&quot;:[[&quot;block&quot;],[&quot;block&quot;],[&quot;hidden&quot;]]}],[&quot;remove_class&quot;,{&quot;names&quot;:[&quot;overflow-hidden&quot;],&quot;to&quot;:&quot;body&quot;}],[&quot;pop_focus&quot;,{}]]" data-cancel="[[&quot;exec&quot;,{&quot;attr&quot;:&quot;phx-remove&quot;}]]" class="relative z-50 hidden">
+  <div id="video-player-bg" class="bg-zinc-50/90 fixed inset-0 transition-opacity" aria-hidden="true"></div>
+  <div class="fixed inset-0 overflow-y-auto" aria-labelledby="video-player-title" aria-describedby="video-player-description" role="dialog" aria-modal="true" tabindex="0">
+    <div class="flex min-h-full items-center justify-center">
+      <div class="w-full max-w-3xl p-4 sm:p-6 lg:py-8">
+        <div id="video-player-container" phx-hook="Phoenix.FocusWrap" class="shadow-zinc-700/10 ring-zinc-700/10 relative hidden rounded-2xl bg-white p-14 shadow-lg ring-1 transition" phx-click-away="[[&quot;exec&quot;,{&quot;attr&quot;:&quot;data-cancel&quot;,&quot;to&quot;:&quot;#video-player&quot;}]]" phx-key="escape" phx-window-keydown="[[&quot;exec&quot;,{&quot;attr&quot;:&quot;data-cancel&quot;,&quot;to&quot;:&quot;#video-player&quot;}]]">
+  <span id="video-player-container-start" tabindex="0" aria-hidden="true"></span>
+  
+          <div class="absolute top-6 right-5">
+            <button phx-click="[[&quot;exec&quot;,{&quot;attr&quot;:&quot;data-cancel&quot;,&quot;to&quot;:&quot;#video-player&quot;}]]" type="button" class="-m-3 flex-none p-3 opacity-20 hover:opacity-40" aria-label="close">
+              <span class="hero-x-mark-solid h-5 w-5"></span>
+            </button>
+          </div>
+          <div id="video-player-content">
+            
+                <video class="object-cover rounded-lg" src="https://fly.storage.tigris.dev/meltylabs/branching.mp4" autoplay loop controls>
+                </video>
+              
+          </div>
+        
+  <span id="video-player-container-end" tabindex="0" aria-hidden="true"></span>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+            <div class="p-10 pt-4">
+              <p class="mt-2 text-lg font-medium tracking-tight text-gray-950">
+                Versioned with git
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                Branch, revert, and checkout any previous state. Under the hood, each message is a git commit. See a live graph of your chat history.
+              </p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]">
+          </div>
+        </div>
+
+        <div class="relative lg:col-span-3">
+          <div class="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]">
+            <img class="h-80 object-cover object-left" src="https://tailwindui.com/plus/img/component-images/bento-01-speed.png" alt="">
+            <div class="p-10 pt-4">
+              <p class="mt-2 text-lg font-medium tracking-tight text-gray-950">
+                Built for power users
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                Instant full-text search across your chats. Keyboard shortcuts for everything. Blazing fast native Mac app.
+              </p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]">
+          </div>
+        </div>
+
+        <div class="relative lg:col-span-3">
+          <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]">
+          </div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
+            <video class="rounded-md h-80" src="https://fly.storage.tigris.dev/meltylabs/desktop.mp4" autoplay loop>
+            </video>
+            <div class="p-10 pt-4">
+              <p class="mt-2 text-lg font-medium tracking-tight text-gray-950">
+                Interact with your file system
+              </p>
+              <p class="mt-2 max-w-lg text-sm/6 text-gray-600">
+                Melty can open and edit files and run terminal commands. Each chat is saved to your local file system.
+              </p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white mb-24">
+    <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          Start Melting
+        </h2>
+
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6uBe0ea26q7Iq0Co_q5fjW2nypUl8G_Is5M_6t8n7wZHuPA/viewform" class="text-brand text-[0.8125rem] ">
+            <button class="phx-submit-loading:opacity-75 rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3 text-sm font-semibold leading-6 text-white active:text-white/80 flex items-center gap-x-2 bg-brand hover:bg-brand/90">
+  
+              Get Early Access <span class="hero-arrow-up-right h-4 w-4"></span>
+            
+</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
